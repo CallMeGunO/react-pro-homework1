@@ -1,0 +1,1 @@
+export { TitleTypography } from './ui';

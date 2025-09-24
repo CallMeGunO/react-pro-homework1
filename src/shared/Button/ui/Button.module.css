@@ -1,0 +1,14 @@
+.container {
+    border: 1px solid blue;
+    padding: 10px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.container:hover {
+    background-color: lightblue;
+}

@@ -1,0 +1,18 @@
+.container {
+    min-width: 25px;
+    height: 25px;
+
+    text-align: center;
+
+    border: 1px solid;
+}
+
+.checked {
+    background-color: greenyellow;
+    border-color: green;
+}
+
+.notChecked {
+    background-color: tomato;
+    border-color: darkred;
+}

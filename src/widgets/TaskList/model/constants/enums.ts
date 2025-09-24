@@ -1,0 +1,5 @@
+export enum FILTER_MODE {
+    ALL = 'ALL',
+    COMPLETED = 'COMPLETED',
+    NOT_COMPLETED = 'NOT_COMPLETED',
+}
