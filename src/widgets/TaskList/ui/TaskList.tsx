@@ -1,14 +1,17 @@
 import { useState, type FC } from 'react';
-import styles from './TaskList.module.css';
-import { TaskCard, type Task } from '@entities/TaskCard';
+import { type Task } from '@entities/TaskCard';
+import { Button } from '@shared/Button';
+import { TitleTypography } from '@shared/TitleTypography';
+import { DeletableTaskCard } from '@features/DeletableTaskCard';
+
 import {
     FILTER_MODE,
     FILTER_MODE_TEXT_MAP,
     useTasks,
     getFilterTitle,
 } from '../model';
-import { Button } from '@shared/Button';
-import { TitleTypography } from '@shared/TitleTypography';
+
+import styles from './TaskList.module.css';
 
 const MOCK_TASKS: Task[] = [
     {
@@ -77,18 +80,13 @@ export const TaskList: FC<TaskListProps> = ({ tasks = MOCK_TASKS }) => {
             </div>
             <TitleTypography>{filterTitle}</TitleTypography>
             <div className={styles.list}>
-                {filteredTasks.map((task) => {
-                    const removeThisTask: VoidFunction = () => {
-                        removeTask(task.id);
-                    };
-
-                    return (
-                        <div className={styles.item}>
-                            <TaskCard key={task.id} task={task} />
-                            <Button onClick={removeThisTask}>Удалить</Button>
-                        </div>
-                    );
-                })}
+                {filteredTasks.map((task) => (
+                    <DeletableTaskCard
+                        key={task.id}
+                        task={task}
+                        handleDelete={removeTask}
+                    />
+                ))}
             </div>
         </div>
     );
