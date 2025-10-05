@@ -3,13 +3,9 @@ import { type Task } from '@entities/TaskCard';
 import { Button } from '@shared/Button';
 import { TitleTypography } from '@shared/TitleTypography';
 import { DeletableTaskCard } from '@features/DeletableTaskCard';
+import { FILTER_MODE, useTasks } from '@features/TasksFeature';
 
-import {
-    FILTER_MODE,
-    FILTER_MODE_TEXT_MAP,
-    useTasks,
-    getFilterTitle,
-} from '../model';
+import { FILTER_MODE_TEXT_MAP, getFilterTitle } from '../model';
 
 import styles from './TaskList.module.css';
 

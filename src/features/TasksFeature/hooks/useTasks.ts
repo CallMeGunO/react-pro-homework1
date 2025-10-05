@@ -1,7 +1,7 @@
 import type { Task } from '@entities/TaskCard';
 import { useState } from 'react';
-import { FILTER_MODE } from './constants';
-import { getFilteredTasks } from './utils';
+import { FILTER_MODE } from '../constants';
+import { getFilteredTasks } from '../utils';
 
 type ResultType = {
     tasks: Task[];
@@ -19,7 +19,7 @@ export const useTasks: UseTasks = (initialTasks) => {
 
     const setFilter = (newFilterMode: FILTER_MODE): void => {
         setFilteredTasks(getFilteredTasks(tasks, newFilterMode));
-        setFilterMode(filterMode);
+        setFilterMode(newFilterMode);
     };
 
     const removeTask = (id: string): void => {
