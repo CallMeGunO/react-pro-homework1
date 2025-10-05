@@ -1,5 +1,6 @@
 import type { Task } from '@entities/TaskCard';
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { FILTER_MODE } from '../constants';
 import { getFilteredTasks } from '../utils';
@@ -8,6 +9,7 @@ type ResultType = {
     tasks: Task[];
     filterMode: FILTER_MODE;
     setFilter: (newFilterMode: FILTER_MODE) => void;
+    addTask: (title: string, completed: boolean) => void;
     removeTask: (id: string) => void;
 };
 
@@ -15,25 +17,31 @@ type UseTasks = (initialTasks: Task[]) => ResultType;
 
 export const useTasks: UseTasks = (initialTasks) => {
     const [tasks, setTasks] = useState<Task[]>(initialTasks);
-    const [filteredTasks, setFilteredTasks] = useState<Task[]>(initialTasks);
     const [filterMode, setFilterMode] = useState<FILTER_MODE>(FILTER_MODE.ALL);
 
-    const setFilter = (newFilterMode: FILTER_MODE): void => {
-        setFilteredTasks(getFilteredTasks(tasks, newFilterMode));
-        setFilterMode(newFilterMode);
-    };
+    const filteredTasks = useMemo(() => {
+        return getFilteredTasks(tasks, filterMode);
+    }, [tasks, filterMode]);
 
-    const removeTask = (id: string): void => {
-        const tasksWithRemoved = tasks.filter((task) => task.id !== id);
+    const addTask = useCallback((title: string, completed: boolean) => {
+        const newTask: Task = {
+            id: uuidv4(),
+            title: title,
+            completed: completed,
+        };
 
-        setTasks(tasksWithRemoved);
-        setFilteredTasks(getFilteredTasks(tasksWithRemoved, filterMode));
-    };
+        setTasks((prev) => [...prev, newTask]);
+    }, []);
+
+    const removeTask = useCallback((id: string): void => {
+        setTasks((prev) => prev.filter((task) => task.id !== id));
+    }, []);
 
     return {
         tasks: filteredTasks,
         filterMode,
-        setFilter,
+        setFilter: setFilterMode,
+        addTask,
         removeTask,
     };
 };

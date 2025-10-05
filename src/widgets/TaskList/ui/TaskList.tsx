@@ -1,4 +1,5 @@
-import type { Task } from '@entities/TaskCard';
+import { type Task } from '@entities/TaskCard';
+import { TaskCreateForm } from '@entities/TaskCreateForm';
 import { DeletableTaskCard } from '@features/DeletableTaskCard';
 import { FILTER_MODE, useTasks } from '@features/TasksFeature';
 import { Button } from '@shared/Button';
@@ -50,6 +51,7 @@ export const TaskList: FC<TaskListProps> = ({ tasks = MOCK_TASKS }) => {
         tasks: filteredTasks,
         filterMode,
         setFilter,
+        addTask,
         removeTask,
     } = useTasks(tasks);
 
@@ -73,6 +75,7 @@ export const TaskList: FC<TaskListProps> = ({ tasks = MOCK_TASKS }) => {
                     );
                 })}
             </div>
+            <TaskCreateForm addTask={addTask} />
             <TitleTypography>{filterTitle}</TitleTypography>
             <div className={styles.list}>
                 {filteredTasks.map((task) => (

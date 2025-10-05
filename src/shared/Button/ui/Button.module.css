@@ -9,6 +9,17 @@
     transition: 0.3s;
 }
 
+.disabled {
+    border-color: gray;
+    background-color: #4d4d4d;
+    color: lightgray;
+    cursor: default;
+}
+
 .container:hover {
     background-color: lightblue;
+}
+
+.container.disabled:hover {
+    background-color: #4d4d4d;
 }
