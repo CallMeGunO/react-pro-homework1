@@ -1,4 +1,5 @@
 import type { Task } from '@entities/TaskCard';
+
 import { FILTER_MODE } from '../constants';
 
 const getIsTaskSatisfiesFilter = (task: Task, filterMode: FILTER_MODE) => {

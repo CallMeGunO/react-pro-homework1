@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+
 import styles from './TitleTypography.module.css';
 
 type TitleTypographyProps = {

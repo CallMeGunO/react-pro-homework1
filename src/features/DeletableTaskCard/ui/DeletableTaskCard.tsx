@@ -1,7 +1,8 @@
-import { type FC } from 'react';
-import styles from './DeletableTaskCard.module.css';
 import { TaskCard, type Task } from '@entities/TaskCard';
 import { Button } from '@shared/Button';
+import { type FC } from 'react';
+
+import styles from './DeletableTaskCard.module.css';
 
 type DeletableTaskCardProps = {
     task: Task;

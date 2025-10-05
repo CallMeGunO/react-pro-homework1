@@ -1,12 +1,11 @@
-import { useState, type FC } from 'react';
-import { type Task } from '@entities/TaskCard';
-import { Button } from '@shared/Button';
-import { TitleTypography } from '@shared/TitleTypography';
+import type { Task } from '@entities/TaskCard';
 import { DeletableTaskCard } from '@features/DeletableTaskCard';
 import { FILTER_MODE, useTasks } from '@features/TasksFeature';
+import { Button } from '@shared/Button';
+import { TitleTypography } from '@shared/TitleTypography';
+import { useState, type FC } from 'react';
 
 import { FILTER_MODE_TEXT_MAP, getFilterTitle } from '../model';
-
 import styles from './TaskList.module.css';
 
 const MOCK_TASKS: Task[] = [

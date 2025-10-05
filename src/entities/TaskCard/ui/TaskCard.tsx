@@ -1,9 +1,9 @@
-import { type FC } from 'react';
-import { type Task } from '../model';
-
-import styles from './TaskCard.module.css';
 import { Marker } from '@shared/Marker';
 import { TitleTypography } from '@shared/TitleTypography';
+import { type FC } from 'react';
+
+import { type Task } from '../model';
+import styles from './TaskCard.module.css';
 
 type TaskCardProps = { task: Task };
 

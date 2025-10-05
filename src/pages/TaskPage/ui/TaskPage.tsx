@@ -1,8 +1,8 @@
+import { TitleTypography } from '@shared/TitleTypography';
+import { TaskList } from '@widgets/TaskList';
 import { type FC } from 'react';
 
 import styles from './TaskPage.module.css';
-import { TitleTypography } from '@shared/TitleTypography';
-import { TaskList } from '@widgets/TaskList';
 
 export const TaskPage: FC = () => {
     return (
