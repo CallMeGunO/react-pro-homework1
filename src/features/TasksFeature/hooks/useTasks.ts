@@ -1,5 +1,5 @@
-import type { Task } from '@entities/TaskCard';
-import { useCallback, useMemo, useState } from 'react';
+import { useGetTasksQuery, type Task } from '@entities/TaskCard';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { FILTER_MODE } from '../constants';
@@ -13,11 +13,19 @@ type ResultType = {
     removeTask: (id: string) => void;
 };
 
-type UseTasks = (initialTasks: Task[]) => ResultType;
+type UseTasks = () => ResultType;
 
-export const useTasks: UseTasks = (initialTasks) => {
-    const [tasks, setTasks] = useState<Task[]>(initialTasks);
+export const useTasks: UseTasks = () => {
+    const { data, isSuccess } = useGetTasksQuery();
+
+    const [tasks, setTasks] = useState<Task[]>([]);
     const [filterMode, setFilterMode] = useState<FILTER_MODE>(FILTER_MODE.ALL);
+
+    useEffect(() => {
+        if (isSuccess && data) {
+            setTasks(data);
+        }
+    }, [data, isSuccess]);
 
     const filteredTasks = useMemo(() => {
         return getFilteredTasks(tasks, filterMode);
