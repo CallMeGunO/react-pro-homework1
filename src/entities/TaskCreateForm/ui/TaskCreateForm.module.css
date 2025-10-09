@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+
+    border: 1px dashed #ff63ed;
+    padding: 10px;
+}

@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+
 import { COMPLETED_TEXT, NON_COMPLETED_TEXT } from '../model';
 import styles from './Marker.module.css';
 
