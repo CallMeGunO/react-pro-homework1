@@ -1,10 +1,10 @@
-import { type FC } from 'react';
+import { type ButtonHTMLAttributes, type FC } from 'react';
 
 import styles from './Button.module.css';
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: string;
-    onClick: VoidFunction;
+    onClick?: VoidFunction;
     disabled?: boolean;
 };
 
@@ -12,18 +12,19 @@ export const Button: FC<ButtonProps> = ({
     children,
     onClick,
     disabled = false,
+    ...buttonProps
 }) => {
     if (disabled) {
         return (
-            <div className={`${styles.container} ${styles.disabled}`}>
+            <button className={`${styles.container} ${styles.disabled}`}>
                 {children}
-            </div>
+            </button>
         );
     }
 
     return (
-        <div className={styles.container} onClick={onClick}>
+        <button className={styles.container} onClick={onClick} {...buttonProps}>
             {children}
-        </div>
+        </button>
     );
 };

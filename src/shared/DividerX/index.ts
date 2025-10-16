@@ -1,0 +1,1 @@
+export { DividerX } from './ui';
