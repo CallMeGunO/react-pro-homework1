@@ -10,6 +10,7 @@ export const Header: FC = () => {
             <TitleTypography>ЗАГОЛОВОК СТРАНИЦ</TitleTypography>
             <Link to='/'>ГЛАВНАЯ</Link>
             <Link to='/form'>РЕГИСТРАЦИЯ</Link>
+            <Link to='/refs'>ДОМАШКА С РЕФАМИ</Link>
         </div>
     );
 };
