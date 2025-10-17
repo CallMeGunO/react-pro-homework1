@@ -1,3 +1,4 @@
+import { RefsPage } from '@pages/RefsPage';
 import { SignupPage } from '@pages/SignupPage';
 import { TaskPage } from '@pages/TaskPage';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
@@ -10,6 +11,10 @@ const router = createHashRouter([
     {
         path: '/form',
         element: <SignupPage />,
+    },
+    {
+        path: '/refs',
+        element: <RefsPage />,
     },
 ]);
 
