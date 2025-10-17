@@ -9,6 +9,7 @@ export const PreviousInput: FC = () => {
 
     return (
         <>
+            <TitleTypography>PreviousInput</TitleTypography>
             <Input
                 label={'CurrentValue'}
                 value={value}

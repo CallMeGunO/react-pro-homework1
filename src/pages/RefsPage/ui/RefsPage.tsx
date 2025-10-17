@@ -1,4 +1,10 @@
-import { ClickTimer, FocusTracker, PreviousInput } from '@features/RefExamples';
+import {
+    ClickTimer,
+    DebouncedLogger,
+    FocusTracker,
+    PreviousInput,
+    WebSocketLogger,
+} from '@features/RefExamples';
 import { DividerX } from '@shared/DividerX';
 import { Header } from '@widgets/Header';
 import { type FC } from 'react';
@@ -15,6 +21,9 @@ export const RefsPage: FC = () => {
             <DividerX />
             <FocusTracker />
             <DividerX />
+            <DebouncedLogger />
+            <DividerX />
+            <WebSocketLogger />
         </div>
     );
 };

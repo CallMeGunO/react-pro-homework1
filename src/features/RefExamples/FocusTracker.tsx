@@ -1,4 +1,5 @@
 import { Button } from '@shared/Button';
+import { TitleTypography } from '@shared/TitleTypography';
 import { useRef, type FC } from 'react';
 
 export const FocusTracker: FC = () => {
@@ -19,7 +20,8 @@ export const FocusTracker: FC = () => {
     };
 
     return (
-        <div>
+        <>
+            <TitleTypography>FocusTracker</TitleTypography>
             <input
                 ref={input1Ref}
                 placeholder='input1'
@@ -27,6 +29,6 @@ export const FocusTracker: FC = () => {
             />
             <input ref={input2Ref} placeholder='input2' />
             <Button onClick={onClick}>Focus on Input 1</Button>
-        </div>
+        </>
     );
 };

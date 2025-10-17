@@ -1,4 +1,5 @@
 import { Button } from '@shared/Button';
+import { TitleTypography } from '@shared/TitleTypography';
 import { useRef, type FC } from 'react';
 
 type LoggerData = {
@@ -33,5 +34,10 @@ export const ClickTimer: FC = () => {
         );
     };
 
-    return <Button onClick={onClick}>Log</Button>;
+    return (
+        <>
+            <TitleTypography>ClickTimer</TitleTypography>
+            <Button onClick={onClick}>Log</Button>
+        </>
+    );
 };
