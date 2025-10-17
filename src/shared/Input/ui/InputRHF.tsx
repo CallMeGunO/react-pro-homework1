@@ -1,27 +1,24 @@
+import type { UseFormRegisterReturn } from 'react-hook-form';
+
 import styles from './Input.module.css';
 import type { BaseInputProps } from '../model';
 
-type InputProps<T> = {
-    value: T;
-    setValue: (newValue: T) => void;
-} & BaseInputProps;
+type InputRHFProps = BaseInputProps & UseFormRegisterReturn;
 
-export const Input = <T,>({
-    value,
-    setValue,
+export const InputRHF = ({
     placeholder,
-    type,
     label,
-}: InputProps<T>) => {
+    type,
+    ...rhfProps
+}: InputRHFProps) => {
     return (
         <div className={styles.container}>
             {label && <span className={styles.label}>{label}:</span>}
             <input
                 className={styles.input}
-                value={value as string}
                 type={type}
-                onChange={(e) => setValue(e.target.value as T)}
                 placeholder={placeholder}
+                {...rhfProps}
             />
         </div>
     );
